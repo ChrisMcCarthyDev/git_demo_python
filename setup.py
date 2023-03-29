@@ -6,5 +6,11 @@ setup(
     packages=["animals"],
     url="https://github.com/ChrisMcCarthyDev/git_demo_python",
     author="Chris McCarthy",
-    description="A demo Python project to enable python training for my team"
+    description="A demo Python project to enable python training for my team",
+    install_requires = [],
+    extras_require={
+        "dev": [
+            "pytest"
+        ]
+    }
 )
