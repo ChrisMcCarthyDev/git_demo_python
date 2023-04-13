@@ -17,14 +17,24 @@ class Dog(Animal):
         super().__init__(species)
         self.breed: Final[str] = breed
 
+    def __hash__(self):
+        """
+        Saves the hash of the object and its attributes.
+
+        :return boolean: (True or False)
+        """
+        key = (self.species, self.breed)
+        return hash(key)
+
     def __eq__(self, other):
         """
         Compares two Dog class species and breeds.
 
         :param other: a different Dog instance
-        :return boolean (True or False)
+        :return boolean: (True or False)
         """
-        return self.species == other.species and self.breed == other.breed
+        if isinstance(other, self.__class__):
+            return hash(self) == hash(other)
 
     def bark(self):
         """Docstring of dog barking."""
