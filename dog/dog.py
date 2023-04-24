@@ -23,18 +23,7 @@ class Dog(Animal):
 
         :return boolean: (True or False)
         """
-        key = (self.species, self.breed)
-        return hash(key)
-
-    def __eq__(self, other):
-        """
-        Compares two Dog class species and breeds.
-
-        :param other: a different Dog instance
-        :return boolean: (True or False)
-        """
-        if isinstance(other, self.__class__):
-            return hash(self) == hash(other)
+        return hash((self.species, self.breed))
 
     def bark(self):
         """Docstring of dog barking."""
